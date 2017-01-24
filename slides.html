@@ -14,6 +14,12 @@
         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      /* Slide-specific styling */
     </style>
   </head>
   <body>
@@ -21,10 +27,10 @@
 
 class: center, middle
 
-# Use Yeoman to Scaffold a Fullstack Webapp
+# Scaffold a Fullstack Webapp in Yeoman
 
-## Jeff Xiao (https://github.com/jeffhongxiao)
-## 2017.2
+### [Jeff Xiao](https://github.com/jeffhongxiao)
+### 2017.2
 
 ---
 
@@ -32,6 +38,7 @@ class: center, middle
 
 1. Introduction
 1. Tools used
+1. Framework/Library used
 1. Generate the project
 1. Look into the project
 1. References
@@ -44,44 +51,135 @@ class: center, middle
 
 ### MEAN = MongoDB, Express, AngularJS, NodeJS
 
+(TODO: image)
+
 ---
 ## Yeoman?
 
-*   Yeoman: the web's scaffolding tool for modern webapps
+* **Yeoman: the web's scaffolding tool for modern webapps**
+	(see also: [Yeoman.io](http://yeoman.io/learning/index.html) )
 
-*	[Yeoman.io](http://yeoman.io/learning/index.html) Yeoman is a generic scaffolding system allowing the creation of any kind of app. 
-	It allows for rapidly getting started on new projects and 
-	streamlines the maintenance of existing projects.
+* Yeoman is a command-line tool for frontend (*and backend*) web development:
+  * project scaffolding;
+  * a build process based in part on Grunt.js (*or gulp*);
+  * package management for updating project dependencies
+	([Stackoverflow](https://stackoverflow.com/tags/yeoman/info))
 
-*   [Stackoverflow](https://stackoverflow.com/tags/yeoman/info): 
-	Yeoman is a command-line tool for frontend web development. As a "web application boilerplate," its main features include project scaffolding, a build process based in part on Grunt.js, and package management for updating project dependencies.
+```bash
+$ npm install -g yo
 
+// diagnosis
+$ yo doctor
+```
+
+---
 ### Generators
 
+[generator-angular-fullstack](https://www.npmjs.com/package/generator-angular-fullstack): 
+* Yeoman generator for creating MEAN stack applications, using MongoDB, Express, AngularJS, and Node
 
-
-angular-fullstack: 
-*	`Creating MEAN stackapps, using MongoDB, Express, AngularJS, and Node`
 
 ---
 ## Scaffolding?
+
+*    Scaffolding is a technique supported by MVC frameworks
+*	 Framework uses this specification, together with pre-defined code templates, to generate the final CRUD code effectively treating the templates as a "scaffold" (aka *boilerplate*)
+
+([Wikipedia](https://en.m.wikipedia.org/wiki/Scaffold_(programming))
+
+![scaffolding image](images/scaffolding.jpg) 
 
 ---
 
 # Tools used
 
+
+## package manager
+### npm
+```bash
+	$ npm install -g generator-angular-fullstack@3.0.0-rc4
+```
+### bower
+```bash
+	$ bower install
+```
+
+---
+# Tools used (cont.)
+
+## build
+### Grunt
+```bash
+    $ grunt serve
+
+	$ grunt test
+	$ grunt test:client
+	$ grunt test:server
+```
+
+
+--- 
+# Framework/Library used
+
+## frontend: AngularJS
+TODO: what is?
+
+## backend: NodeJS, Express 
+TODO: what is?
+
+## testing
+* unit test: TBA
+* integration test: TBA
+
 ---
 
 # Generate the project
 
+(*generator-angular-fullstack@3.0.0-rc4 uses an older version of Node*)
+```bash
+     $ nvm ls
+	 $ nvm use v0.12.7
+
+	 $ yo augular-fullstack meaningful-app
+	 (... answer a few questions ...)
+```	
+
 ---
 
 # Look into the project
+(code structure TBA)
+
+
+## generate frontend
+```bash
+	 $ yo angular-fullstack:route meetings
+	 $ yo angular-fullstack:factory meetings
+```bash
+
+## generate backend
+```bash
+	 $ yo angular-fullstack:endpoint meeting
+```
 
 ---
 
 # References
 
+## websites
+
+* [yeoman.io](http://yeoman.io)
+* [npmjs](https://www.npmjs.com/)
+* [nvm: Node Version Manager](https://github.com/creationix/nvm)
+
+## books
+* [Web Application Development with MEAN](https://www.packtpub.com/application-development/web-application-development-mean)
+  * [Building an E-Commerce Application with MEAN](https://www.packtpub.com/web-development/building-e-commerce-application-mean)
+
+## courses
+* [M101JS: MongoDB for Node.js Developers](https://university.mongodb.com/courses/M101JS/about)
+* [Shaping up with Angular.js](https://www.codeschool.com/courses/shaping-up-with-angular-js)
+
+* [PluralSight](http://www.pluralsight.com)
 ---
 
 # Questions?
