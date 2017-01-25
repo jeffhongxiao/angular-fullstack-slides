@@ -15,11 +15,6 @@
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
 
-      .footnote {
-        position: absolute;
-        bottom: 3em;
-      }
-      /* Slide-specific styling */
     </style>
   </head>
   <body>
@@ -29,7 +24,7 @@ class: center, middle
 
 # Scaffold a Fullstack Webapp in Yeoman
 
-### [Jeff Xiao](https://github.com/jeffhongxiao)
+### Jeff Xiao
 ### 2017.2
 
 ---
@@ -40,18 +35,25 @@ class: center, middle
 1. Tools used
 1. Framework/Library used
 1. Generate the project
-1. Look into the project
+1. Get around in the project (demo)
 1. References
 
 ---
-
 # Introduction
 
+## Scaffolding?
+* Scaffolding is a technique supported by MVC frameworks
+* Framework uses specification & pre-defined code templates
+* generate the final CRUD code effectively treating the templates as a "scaffold" (aka *boilerplate*)
+
+![scaffolding image](images/scaffolding.jpg) 
+
+---
 ## Fullstack?
 
 ### MEAN = MongoDB, Express, AngularJS, NodeJS
 
-(TODO: image)
+![MEAN stack](./images/mean.jpg)
 
 ---
 ## Yeoman?
@@ -63,86 +65,127 @@ class: center, middle
   * project scaffolding;
   * a build process based in part on Grunt.js (*or gulp*);
   * package management for updating project dependencies
-	([Stackoverflow](https://stackoverflow.com/tags/yeoman/info))
 
 ```bash
 $ npm install -g yo
 
-// diagnosis
+# help
+$ yo --help
+
+# list local generators and options
+$ yo --generators
+
+# diagnosis
 $ yo doctor
 ```
 
 ---
-### Generators
+## Yeoman generators
 
-[generator-angular-fullstack](https://www.npmjs.com/package/generator-angular-fullstack): 
+
+* Yeoman can generate projects in many language (Web, Java, Python, C#, etc.)
+* Generators are basically plugins in the Yeoman environment)
+* [list of generators](http://yeoman.io/generators/)
+* create your own generator ([Jeff's generator](https://www.npmjs.com/package/generator-angular-fullstack-grunt))
+
+### [generator-angular-fullstack](https://www.npmjs.com/package/generator-angular-fullstack): 
 * Yeoman generator for creating MEAN stack applications, using MongoDB, Express, AngularJS, and Node
 
-
----
-## Scaffolding?
-
-*    Scaffolding is a technique supported by MVC frameworks
-*	 Framework uses this specification, together with pre-defined code templates, to generate the final CRUD code effectively treating the templates as a "scaffold" (aka *boilerplate*)
-
-([Wikipedia](https://en.m.wikipedia.org/wiki/Scaffold_(programming))
-
-![scaffolding image](images/scaffolding.jpg) 
 
 ---
 
 # Tools used
 
-
 ## package manager
-### npm
+
+### [npm](npmjs.org)
 ```bash
-	$ npm install -g generator-angular-fullstack@3.0.0-rc4
+$ npm help
+
+$ npm install -h
+$ npm help install
 ```
-### bower
+
+### [bower](https://bower.io/)
 ```bash
-	$ bower install
+$ bower
+
+$ bower help install
 ```
 
 ---
-# Tools used (cont.)
 
-## build
-### Grunt
+# Tools used
+
+## automation (serve, test, etc.)
+### [Grunt](http://gruntjs.com/)
 ```bash
-    $ grunt serve
+$ grunt serve
 
-	$ grunt test
-	$ grunt test:client
-	$ grunt test:server
+$ grunt test
+$ grunt test:client
+$ grunt test:server
+$ grunt test:e2e
 ```
 
+---
 
 --- 
+
 # Framework/Library used
 
-## frontend: AngularJS
-TODO: what is?
+## AngularJS
 
-## backend: NodeJS, Express 
-TODO: what is?
+* a complete JavaScript-based open-source **front-end web application framework**
+* mainly maintained by Google and a community
+* address many of the challenges encountered in developing single-page applications (SPA) 
+
+## NodeJS 
+* a **JavaScript runtime** built on Chrome's V8 JavaScript engine 
+* uses an event-driven, non-blocking I/O model
+* npm is the *largest* ecosystem of open source libraries in the world
+
+---
+# Framework/Library used
+
+## Express
+* a minimal and flexible Node.js web application framework
+* provides a robust set of features for web and mobile applications
+
+## Database: MongoDB
+* free and open-source 
+* cross-platform 
+* document-oriented
+* **NoSQL** database program
+
+---
+# Framework/Library used
 
 ## testing
 * unit test: TBA
 * integration test: TBA
 
----
 
+
+---
 # Generate the project
 
+## use an older version of node in nvm
 (*generator-angular-fullstack@3.0.0-rc4 uses an older version of Node*)
 ```bash
-     $ nvm ls
-	 $ nvm use v0.12.7
+$ nvm ls
+$ nvm use v0.12.7
 
-	 $ yo augular-fullstack meaningful-app
-	 (... answer a few questions ...)
+$ npm install -g generator-angular-fullstack@3.0.0-rc4
+```
+
+## generate a webapp: *meaningful-app*
+```bash
+$ yo augular-fullstack meaningful-app
+(... answer a few questions ...)
 ```	
+
+---
 
 ---
 
@@ -161,6 +204,8 @@ TODO: what is?
 	 $ yo angular-fullstack:endpoint meeting
 ```
 
+see [document](https://github.com/angular-fullstack/generator-angular-fullstack/tree/v3.0.0-rc4) for more options
+
 ---
 
 # References
@@ -171,10 +216,16 @@ TODO: what is?
 * [npmjs](https://www.npmjs.com/)
 * [nvm: Node Version Manager](https://github.com/creationix/nvm)
 
+* [mean.io](http://mean.io/)
+
 ## books
 * [Web Application Development with MEAN](https://www.packtpub.com/application-development/web-application-development-mean)
   * [Building an E-Commerce Application with MEAN](https://www.packtpub.com/web-development/building-e-commerce-application-mean)
 
+---
+
+
+# References
 ## courses
 * [M101JS: MongoDB for Node.js Developers](https://university.mongodb.com/courses/M101JS/about)
 * [Shaping up with Angular.js](https://www.codeschool.com/courses/shaping-up-with-angular-js)
@@ -184,7 +235,9 @@ TODO: what is?
 
 # Questions?
 
+## [github: jeffhongxiao](https://github.com/jeffhongxiao)
 
+<img src="images/jeffxiao.jpg" width="200">
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
