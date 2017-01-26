@@ -34,7 +34,7 @@ class: center, middle
 1. Introduction
 1. Tools used
 1. Framework/Library used
-1. Generate the project
+1. Generate the project (demo)
 1. Get around in the project (demo)
 1. Further reading
 
@@ -42,9 +42,9 @@ class: center, middle
 ## Introduction
 
 ### Scaffolding?
-* Scaffolding is a technique supported by MVC frameworks
-* Framework uses specification & pre-defined code templates
-* generate the final CRUD code effectively treating the templates as a "scaffold" (aka *boilerplate*)
+* a technique supported by MVC frameworks
+* framework uses pre-defined code templates
+* generate the final CRUD code, treating the templates as a "scaffold" (aka *boilerplate*)
 
 <img src="images/scaffolding.jpg" width="400">
 
@@ -58,12 +58,11 @@ class: center, middle
 ---
 ### Yeoman?
 
-* **Yeoman: the web's scaffolding tool for modern webapps**
-	(see also: [Yeoman.io](http://yeoman.io/learning/index.html) )
+* [Yeoman](http://yeoman.io/learning/index.html): **the web's scaffolding tool for modern webapps**
 
 * Yeoman is a command-line tool for frontend (*and backend*) web development:
-  * project scaffolding;
-  * a build process based in part on Grunt.js (*or gulp*);
+  * project scaffolding
+  * a build process based in part on Grunt.js (*or gulp*)
   * package management for updating project dependencies
 
 ```bash
@@ -122,10 +121,19 @@ $ bower help install
 ```bash
 $ grunt serve
 
-$ grunt test
+# karma:unit
 $ grunt test:client
+
+# mochaTest: unit
+# mochaTest: integration
 $ grunt test:server
+
+# test:client, test:server
+$ grunt test
+
+# protractor:chrome
 $ grunt test:e2e
+
 ```
 
 ---
@@ -133,13 +141,13 @@ $ grunt test:e2e
 
 ## Framework/Library used
 
-### AngularJS
+### [AngularJS](https://angularjs.org/)
 
 * a complete JavaScript-based open-source **front-end web application framework**
 * mainly maintained by Google and a community
 * address many of the challenges encountered in developing single-page applications (SPA) 
 
-### NodeJS 
+### [NodeJS](https://nodejs.org/en/)
 * a **JavaScript runtime** built on Chrome's V8 JavaScript engine 
 * uses an event-driven, non-blocking I/O model
 * npm is the *largest* ecosystem of open source libraries in the world
@@ -147,30 +155,35 @@ $ grunt test:e2e
 ---
 ## Framework/Library used
 
-### Express
+### [Express](http://expressjs.com/)
 * a minimal and flexible Node.js web application framework
 * provides a robust set of features for web and mobile applications
 
-### Database: MongoDB
+### Database: [MongoDB](https://www.mongodb.com/)
+* **NoSQL** database program
 * free and open-source 
 * cross-platform 
 * document-oriented
-* **NoSQL** database program
 
 ---
 ## Framework/Library used
 
 ### testing
-* unit test: TBA
-* integration test: TBA
 
+#### unit test, integration test
+ * [Mocha](https://mochajs.org/): test framework running on Node.js and in the browser
+ * [Chai](http://chaijs.com/): **BDD** / **TDD** assertion library for node and the browser
+  * [Should](https://github.com/shouldjs/should.js): BDD style **assertions** for node.js
+ * [Sinon](http://sinonjs.org/): standalone test *spies*, *stubs* and *mocks* for JavaScript
 
+#### end-to-end (e2e) test:
+ * [Protractor](http://www.protractortest.org/#/): end-to-end test framework for AngularJS applications, in a *real browser* (with Selenium)
 
 ---
-## Generate the project
+## Generate the project (demo)
 
 ### use an older version of node in nvm
-(*generator-angular-fullstack@3.0.0-rc4 uses an older version of Node*)
+     (generator-angular-fullstack@3.0.0-rc4 uses an older version of Node)
 ```bash
 $ nvm ls
 $ nvm use v0.12.7
@@ -180,10 +193,40 @@ $ npm install -g generator-angular-fullstack@3.0.0-rc4
 
 ### generate a webapp: *meaningful-app*
 ```bash
-$ yo augular-fullstack meaningful-app
-(... answer a few questions ...)
+$ yo angular-fullstack meaningful-app
+(... answer a few questions; see next slide ...)
 ```	
+---
+## Generate the project (demo)
 
+* Client
+  * script: Javascript
+  * markup: HTML
+  * stylesheet: Sass
+  * angular router: uiRouter
+  * bootstrap: Yes
+  * UI boostrap: Yes
+
+* Server
+  * data modeling: Mongoose (MongoDB)
+  * authenticate boilerplate: Yes
+  * oAuth: Google, Facebook, Twitter
+  * socket.io: Yes
+  
+* Project
+  * tests with: Mocha + Chai + Sinon
+  * Chai assertion: Should
+
+
+~~~
+I'm all done. Running **npm install** & **bower install** 
+for you to install the required dependencies. 
+If this fails, try running the command yourself.
+~~~
+
+---
+
+## Get around in the project (demo)
 
 ---
 
@@ -203,8 +246,8 @@ $ yo augular-fullstack meaningful-app
 
 ---
 
+## Further reading
 
-## References
 ### courses
 * [M101JS: MongoDB for Node.js Developers](https://university.mongodb.com/courses/M101JS/about)
 * [Shaping up with Angular.js](https://www.codeschool.com/courses/shaping-up-with-angular-js)
@@ -214,7 +257,7 @@ $ yo augular-fullstack meaningful-app
 
 ## Questions?
 
-### [github: jeffhongxiao](https://github.com/jeffhongxiao)
+### github: [jeffhongxiao](https://github.com/jeffhongxiao)
 
 <img src="images/jeffxiao.jpg" width="200">
 
