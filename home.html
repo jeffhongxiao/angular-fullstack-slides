@@ -46,7 +46,7 @@ class: center, middle
 * framework uses pre-defined code templates
 * generate the final CRUD code, treating the templates as a "scaffold" (aka *boilerplate*)
 
-<img src="images/scaffolding.jpg" width="400">
+<img src="images/scaffolding.jpg" width="200">
 
 ---
 ## Introduction
@@ -151,7 +151,7 @@ $ grunt test:e2e
 * mainly maintained by Google and a community
 * address many of the challenges encountered in developing single-page applications (SPA) 
 
-<img src="images/angularjs-logo.png" width="400">
+<img src="images/angularjs-logo.png" width="200">
 
 ---
 ## Framework/Library used
@@ -159,10 +159,15 @@ $ grunt test:e2e
 ### [NodeJS](https://nodejs.org/en/)
 * a **JavaScript runtime** built on Chrome's V8 JavaScript engine 
 * uses an event-driven, non-blocking I/O model
+
+<img src="images/nodejs-logo.png" width="200">
+
 * npm is the *largest* ecosystem of open source libraries in the world
+ * [Atwood's Law, 2007](https://blog.codinghorror.com/the-principle-of-least-power/): 
+any application that *can* be written in JavaScript, *will* eventually be written in JavaScript.
 
-<img src="images/nodejs-logo.png" width="400">
-
+* **package.json** file
+ * sample [packages.json](https://github.com/angular-fullstack/generator-angular-fullstack/blob/master/package.json)
 ---
 ## Framework/Library used
 
@@ -170,7 +175,24 @@ $ grunt test:e2e
 * a minimal and flexible Node.js *web application framework*
 * provides a robust set of features for web and mobile applications
 
-<img src="images/express-logo.png" width="400">
+<img src="images/express-logo.png" width="200">
+
+```javascript
+var express = require('express')
+var app = express()
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
+```
+
+```bash
+$ node app.js
+```
 
 ---
 ## Framework/Library used
@@ -181,7 +203,69 @@ $ grunt test:e2e
 * cross-platform 
 * document-oriented
 
-<img src="images/mongodb-logo.jpg" width="400">
+<img src="images/mongodb-logo.jpg" width="200">
+
+---
+## Framework/Library used
+
+### testing
+#### unit test, integration test
+ 
+* [Chai](http://chaijs.com/): BDD / TDD assertion library for node and the browser
+ * [Should](https://github.com/shouldjs/should.js): BDD style **assertions** for node.js
+
+```javascript
+  it('should attach a list of things to the scope', function() {
+    $httpBackend.flush();
+    scope.awesomeThings.length.should.equal(4);
+  });
+
+```
+
+---
+## Framework/Library used
+
+### testing
+* [Sinon](http://sinonjs.org/): standalone test *spies*, *stubs* and *mocks* for JavaScript
+
+
+```javascript
+var routerStub = {
+  get: sinon.spy(),
+  // other methods
+};
+
+...
+
+  describe('GET /api/users', function() {
+    it('should verify admin role and route to user.controller.index', function() {
+      routerStub.get
+                .withArgs('/', 'authService.hasRole.admin', 'userCtrl.index')     // Sinon
+                .should.have.been.calledOnce;
+    });
+  });
+
+```
+
+
+---
+## Framework/Library used
+
+### testing
+* [Supertest](https://www.npmjs.com/package/supertest): provide a high-level abstraction for testing HTTP, while still allowing the lower-level API provided by [superagent](https://www.npmjs.com/package/superagent)
+
+```javascript
+var request = require('supertest');
+
+...
+
+    it('should respond with a 401 when not authenticated', function(done) {
+      request(app)
+        .get('/api/users/me')
+        .expect(401)
+        .end(done);
+    });
+```
 
 ---
 ## Framework/Library used
@@ -189,13 +273,12 @@ $ grunt test:e2e
 ### testing
 
 #### unit test, integration test
- * [Mocha](https://mochajs.org/): test framework running on Node.js and in the browser
- * [Chai](http://chaijs.com/): **BDD** / **TDD** assertion library for node and the browser
-  * [Should](https://github.com/shouldjs/should.js): BDD style **assertions** for node.js
- * [Sinon](http://sinonjs.org/): standalone test *spies*, *stubs* and *mocks* for JavaScript
+* [Mocha](https://mochajs.org/): test framework running on Node.js and in the browser
+
 
 #### end-to-end (e2e) test:
- * [Protractor](http://www.protractortest.org/#/): end-to-end test framework for AngularJS applications, in a *real browser* (with Selenium)
+* [Protractor](http://www.protractortest.org/#/): end-to-end test framework for AngularJS applications, in a *real browser* (with Selenium)
+
 
 ---
 ## Generate the project (demo)
@@ -261,6 +344,7 @@ If this fails, try running the command yourself.
 * [Web Application Development with MEAN](https://www.packtpub.com/application-development/web-application-development-mean)
   * [Building an E-Commerce Application with MEAN](https://www.packtpub.com/web-development/building-e-commerce-application-mean)
 
+* [JavaScript: The Good Parts](https://www.safaribooksonline.com/library/view/javascript-the-good/9780596517748/)
 ---
 
 ## Further reading
